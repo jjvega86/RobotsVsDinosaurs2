@@ -13,12 +13,17 @@ namespace RobotsDinosaursProject
         public int robotPowerLevel;
         public Weapon weapon;
 
-        public Robot(string name, int health, int powerLevel)
+        public Robot(string name)
         {
             this.robotName = name;
-            this.robotHealth = health;
-            this.robotPowerLevel = powerLevel;
+            this.robotHealth = 100;
+            this.robotPowerLevel = 100;
             weapon = new Weapon("laser cannon", 10);
+
+        }
+        public void Attack(Dinosaur dinosaur)
+        {
+            dinosaur.dinosaurHealth -= robotPowerLevel;
 
         }
     }
