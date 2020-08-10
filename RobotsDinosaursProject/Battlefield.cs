@@ -28,6 +28,7 @@ namespace RobotsDinosaursProject
 
         }
 
+
         public string EngageBattle()
         {
 
@@ -36,19 +37,20 @@ namespace RobotsDinosaursProject
 
             while (fleet1.robotFleet.Count != 0 && herd1.dinosaurHerd.Count != 0)
             {
+                herd1.dinosaurHerd[0].Attack(fleet1.robotFleet[0]);
                 fleet1.robotFleet[0].Attack(herd1.dinosaurHerd[0]);
+                
+
                 if (herd1.dinosaurHerd[0].dinosaurHealth == 0)
                 {
-                    fleet1.robotFleet.RemoveAt(0);
+                    herd1.dinosaurHerd.RemoveAt(0);
+
                 }
 
-
-                herd1.dinosaurHerd[0].Attack(fleet1.robotFleet[0]);
                 if (fleet1.robotFleet[0].robotHealth == 0)
                 {
                     fleet1.robotFleet.RemoveAt(0);
                 }
-
 
             }
 

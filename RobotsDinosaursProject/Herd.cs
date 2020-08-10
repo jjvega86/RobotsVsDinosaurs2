@@ -9,9 +9,9 @@ namespace RobotsDinosaursProject
     class Herd
     {
         public List<Dinosaur> dinosaurHerd;
-        Dinosaur dinosaur1 = new Dinosaur("T-Rex", 20);
-        Dinosaur dinosaur2 = new Dinosaur("Stegga", 20);
-        Dinosaur dinosaur3 = new Dinosaur("Raptor", 20);
+        Dinosaur dinosaur1 = new Dinosaur("T-Rex");
+        Dinosaur dinosaur2 = new Dinosaur("Stegga");
+        Dinosaur dinosaur3 = new Dinosaur("Raptor");
         
 
         public Herd()

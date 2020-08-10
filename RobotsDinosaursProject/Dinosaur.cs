@@ -13,17 +13,17 @@ namespace RobotsDinosaursProject
         public int dinosaurEnergy;
         public int dinosaurAttackPower;
 
-        public Dinosaur(string type, int attackPower)
+        public Dinosaur(string type)
         {
             this.dinosaurType = type;
             this.dinosaurHealth = 100;
             this.dinosaurEnergy = 100;
-            this.dinosaurAttackPower = attackPower;
+            this.dinosaurAttackPower = 100;
         }
 
         public void Attack(Robot robot)
         {
-            robot.robotHealth -= dinosaurAttackPower;
+            robot.robotHealth = robot.robotHealth - dinosaurAttackPower;
 
         }
     }

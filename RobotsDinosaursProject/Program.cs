@@ -12,7 +12,6 @@ namespace RobotsDinosaursProject
         {
             Battlefield robotdinosaurbattle = new Battlefield();
 
-            robotdinosaurbattle.ChooseYourTeam();
 
             robotdinosaurbattle.PrintBattleResult(robotdinosaurbattle.EngageBattle());
 
