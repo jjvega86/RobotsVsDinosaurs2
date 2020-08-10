@@ -18,15 +18,13 @@ namespace RobotsDinosaursProject
 
         }
 
-        public void PopulateBattlefield()
+        public void ChooseYourTeam() 
         {
-            fleet1.AddRobottoFleet(fleet1.CreateRobot("Smasher", 100, 100)); //fleet[0]
-            fleet1.AddRobottoFleet(fleet1.CreateRobot("Metal Mouth", 100, 100)); //fleet[1]
-            fleet1.AddRobottoFleet(fleet1.CreateRobot("Rusty Bicep", 100, 100)); //fleet[2]
+            //How can I make this a user option to pick which type of robot or dinosaur
+            //they want to add to their fleets/herds?
 
-            herd1.AddDinosaurToHerd(herd1.CreateDinosaur("T-Rex", 100, 100, 20)); //herd[0]
-            herd1.AddDinosaurToHerd(herd1.CreateDinosaur("Stegga", 100, 100, 20)); //herd[1]
-            herd1.AddDinosaurToHerd(herd1.CreateDinosaur("Raptor", 100, 100, 20)); //herd[2]
+
+
 
         }
 
@@ -35,15 +33,30 @@ namespace RobotsDinosaursProject
 
             //As a developer, I want a Robot to have the ability to attack a Dinosaur and a Dinosaur
             //to have the ability to attack a robot on a Battlefield
+            //As a developer, I want to pick a Robot and a Dinosaur at random to fight each other from the lists.
+            //As a developer, I want them to attack each other, and based on a random roll, have one win and take
+            //health from the other based on their attack power
+            //As a developer, I want losing combatants to no longer be an option to fight
+            //As a developer, I want the last one standing to be shown as the winning team
 
             string winningTeam = "Robots";
+            int robotDice = 0;
+            int dinosaurDice = 0;
+            int robotSelection = 0;
+            int dinosaurSelection = 0;
+            //A random roll will determine which dinosaur and which robot gets selected to fight
+            //A different random roll determines which one gets to damage the other
+
+            for (int index = 0 )
+
+            
 
             return winningTeam;
         }
 
         public void PrintBattleResult(string winningTeam)
         {
-            Console.WriteLine($"{winningTeam} wins!");
+            Console.WriteLine($"{winningTeam} win!");
             Console.ReadLine();
         }
     }
