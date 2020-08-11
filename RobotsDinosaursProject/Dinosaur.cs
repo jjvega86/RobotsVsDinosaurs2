@@ -41,12 +41,25 @@ namespace RobotsDinosaursProject
             if (robot.robotHealth <= 0) //never display less than 0 as health to the user
             {
                 robot.robotHealth = 0;
+                Console.WriteLine($"Oh no! {robot.robotName} is destroyed.");
+                Console.WriteLine("");
+            }
+            else if (dinosaurAttackPower == 0)
+            {
+                Console.WriteLine($"{dinosaurType} is too tired to attack!");
+                Console.WriteLine("");
+
+            }
+            else
+            {
+                Console.WriteLine($"Hit! {robot.robotName}'s health is down to {robot.robotHealth}.");
+                Console.WriteLine("");
+
             }
 
 
             dinosaurAttackPower = dinosaurDefaultAttackPower; //this keeps from compounding the attack multipliers over iterations
-            Console.WriteLine($"Hit! {robot.robotName}'s health is down to {robot.robotHealth}.");
-            Console.WriteLine("");
+            
 
 
         }

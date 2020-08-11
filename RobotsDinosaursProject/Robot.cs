@@ -64,10 +64,22 @@ namespace RobotsDinosaursProject
             if (dinosaur.dinosaurHealth <= 0)
             {
                 dinosaur.dinosaurHealth = 0;
+                Console.WriteLine($"Oh no! {dinosaur.dinosaurType} is dead.");
+                Console.WriteLine("");
+            }
+            else if (modifiedAttackPower == 0)
+            {
+                Console.WriteLine($"{robotName} is too tired to attack!");
+                Console.WriteLine("");
+
+            }
+            else
+            {
+                Console.WriteLine($"Hit! {dinosaur.dinosaurType}'s health is down to {dinosaur.dinosaurHealth}.");
+                Console.WriteLine("");
             }
 
-            Console.WriteLine($"Hit! {dinosaur.dinosaurType}'s health is down to {dinosaur.dinosaurHealth}.");
-            Console.WriteLine("");
+            
 
         }
 
