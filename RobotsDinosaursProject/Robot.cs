@@ -19,13 +19,13 @@ namespace RobotsDinosaursProject
             this.robotName = name;
             this.robotHealth = 100;
             this.robotPowerLevel = 100;
-            this.robotAttackPower = 20;
+            this.robotAttackPower = 50;
             weapon = new Weapon("laser cannon", 10); //a weapon can add a multiplier variable to increase attack power
 
         }
         public void Attack(Dinosaur dinosaur)
         {
-            dinosaur.dinosaurHealth = dinosaur.dinosaurHealth - robotAttackPower;
+            dinosaur.dinosaurHealth -= robotAttackPower;
 
         }
     }
