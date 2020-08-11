@@ -10,11 +10,10 @@ namespace RobotsDinosaursProject
     {
         static void Main(string[] args)
         {
-            //Battlefield robotdinosaurbattle = new Battlefield();
-            //robotdinosaurbattle.PrintBattleResult(robotdinosaurbattle.EngageBattle());
+            Battlefield robotdinosaurbattle = new Battlefield();
+            robotdinosaurbattle.PrintBattleResult(robotdinosaurbattle.EngageBattle());
 
-            Fleet fleet = new Fleet();
-            fleet.AssignWeapons();
+
 
         }
     }

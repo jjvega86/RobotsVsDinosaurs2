@@ -18,16 +18,9 @@ namespace RobotsDinosaursProject
 
         }
 
-        public void ChooseYourTeam() 
-        {
-            //How can I make this a user option to pick which type of robot or dinosaur
-            //they want to add to their fleets/herds?
-
-        }
-
-
         public string EngageBattle()
         {
+            fleet1.AssignWeapons();
 
 
             string winningTeam = " ";
@@ -38,13 +31,13 @@ namespace RobotsDinosaursProject
                 fleet1.robotFleet[0].Attack(herd1.dinosaurHerd[0]);
                 
 
-                if (herd1.dinosaurHerd[0].dinosaurHealth == 0)
+                if (herd1.dinosaurHerd[0].dinosaurHealth <= 0)
                 {
                     herd1.dinosaurHerd.RemoveAt(0);
 
                 }
 
-                if (fleet1.robotFleet[0].robotHealth == 0)
+                if (fleet1.robotFleet[0].robotHealth <= 0)
                 {
                     fleet1.robotFleet.RemoveAt(0);
                 }

@@ -25,7 +25,7 @@ namespace RobotsDinosaursProject
             this.robotPowerLevel = 100;
             weapon = new Weapon("laser cannon", 1); //default weapon is a laser cannon that adds no multiplier. Standard attack power
             armory1 = new Armory();
-            this.robotAttackPower = 50 * weapon.multiplier;
+            this.robotAttackPower = 50;
 
         }
 
@@ -48,7 +48,9 @@ namespace RobotsDinosaursProject
             }
             int UserInput = int.Parse(Console.ReadLine());
 
-            weapon = armory1.armory[UserInput - 1];
+            robotAttackPower = robotAttackPower * armory1.armory[UserInput - 1].multiplier; 
+
+            //weapon = armory1.armory[UserInput - 1];
 
         }
 

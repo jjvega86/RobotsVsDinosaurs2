@@ -16,9 +16,11 @@ namespace RobotsDinosaursProject
         public Armory()
         {
             armory = new List<Weapon>();
-            armory.Add(sonicwave);
+            
             armory.Add(sword);
             armory.Add(pulsarcannon);
+            armory.Add(sonicwave);
+
         }
     }
 }
