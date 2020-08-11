@@ -14,7 +14,7 @@ namespace RobotsDinosaursProject
         public int robotAttackPower;
         public int modifiedAttackPower;
         public Weapon weapon;
-        public Armory armory1;
+        public Armory armory;
 
         //Robots will be all the same type but have different weapon choices and less energy
         //Dinosaurs will have different types with different attributes, and different in battle attack types
@@ -24,9 +24,9 @@ namespace RobotsDinosaursProject
             this.robotName = name;
             this.robotHealth = 100;
             this.robotPowerLevel = 20;
-            weapon = new Weapon("laser cannon", 1); //default weapon is a laser cannon that adds no multiplier. Standard attack power
-            armory1 = new Armory();
-            this.robotAttackPower = 10;
+            weapon = new Weapon("robo punch", 1); //default weapon is a punch that adds no multiplier. Standard attack power
+            armory = new Armory();
+            this.robotAttackPower = 20;
             this.modifiedAttackPower = robotAttackPower;
 
         }
@@ -43,7 +43,7 @@ namespace RobotsDinosaursProject
             Console.WriteLine("Press the number of your selection, then press enter.");
 
 
-            foreach (Weapon weapon in armory1.armory)
+            foreach (Weapon weapon in armory.armory)
             {
                 Console.WriteLine($"{index}: {weapon.type}");
                 index += 1;
@@ -52,32 +52,62 @@ namespace RobotsDinosaursProject
             Console.WriteLine("");
 
 
-            robotAttackPower *= armory1.armory[UserInput - 1].multiplier; 
+            robotAttackPower *= armory.armory[UserInput - 1].multiplier; 
+
+        }
+
+        public bool RollforAttack()
+        {
+            Random random = new Random();
+            bool attackSuccess;
+
+            if (random.Next(21) > 10)
+            {
+                attackSuccess = true;
+            }
+            else
+            {
+                attackSuccess = false;
+            }
+
+            return attackSuccess;
 
         }
 
         public void Attack(Dinosaur dinosaur)
         {
-            modifiedAttackPower = DrainEnergyAndRecharge();
-            dinosaur.dinosaurHealth -= modifiedAttackPower;
+            bool attackRoll = RollforAttack();
 
-            if (dinosaur.dinosaurHealth <= 0)
+            if (attackRoll == true)
             {
-                dinosaur.dinosaurHealth = 0;
-                Console.WriteLine($"Oh no! {dinosaur.dinosaurType} is dead.");
-                Console.WriteLine("");
-            }
-            else if (modifiedAttackPower == 0)
-            {
-                Console.WriteLine($"{robotName} is too tired to attack!");
-                Console.WriteLine("");
+                modifiedAttackPower = DrainEnergyAndRecharge();
+                dinosaur.dinosaurHealth -= modifiedAttackPower;
+
+                if (dinosaur.dinosaurHealth <= 0)
+                {
+                    dinosaur.dinosaurHealth = 0;
+                    Console.WriteLine($"Oh no! {dinosaur.dinosaurType} is dead.");
+                    Console.WriteLine("");
+                }
+                else if (modifiedAttackPower == 0)
+                {
+                    Console.WriteLine($"{robotName} is too tired to attack!");
+                    Console.WriteLine("");
+
+                }
+                else
+                {
+                    Console.WriteLine($"Hit! {dinosaur.dinosaurType}'s health is down to {dinosaur.dinosaurHealth}.");
+                    Console.WriteLine("");
+                }
 
             }
             else
             {
-                Console.WriteLine($"Hit! {dinosaur.dinosaurType}'s health is down to {dinosaur.dinosaurHealth}.");
-                Console.WriteLine("");
+                Console.WriteLine($"{dinosaur.dinosaurType} failed to attack!");
             }
+
+            
 
             
 
@@ -106,9 +136,7 @@ namespace RobotsDinosaursProject
             else
             {
                 modifiedAttackPower = robotAttackPower; //resets attack power in case it was previously set to 0
-            }//issue because it undoes weapon selection from beginning of the game
-            //create a temporary variable to store original robotAttackPower value and pass that in instead
-            //then test both energy drain/restore methods after lunch
+            }
 
             return modifiedAttackPower;
         }

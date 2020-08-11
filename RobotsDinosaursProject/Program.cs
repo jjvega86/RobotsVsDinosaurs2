@@ -11,9 +11,8 @@ namespace RobotsDinosaursProject
         static void Main(string[] args)
         {
             Battlefield robotdinosaurbattle = new Battlefield();
+            robotdinosaurbattle.BattleIntroduction();
             robotdinosaurbattle.PrintBattleResult(robotdinosaurbattle.EngageBattle());
-
-
 
         }
     }
