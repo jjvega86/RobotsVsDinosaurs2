@@ -23,12 +23,7 @@ namespace RobotsDinosaursProject
 
         }
 
-        //public Dinosaur CreateDinosaur(string type, int health, int energy, int attackPower)
-        //{
-        //    Dinosaur dinosaur = new Dinosaur(type, health, energy, attackPower);
-        //    return dinosaur;
-        //}
-        //Probably don't need this method if the user is always given set options to choose from
+
 
         public void AddDinosaurToHerd(Dinosaur dinosaur)
         {

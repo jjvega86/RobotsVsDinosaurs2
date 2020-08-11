@@ -31,9 +31,7 @@ namespace RobotsDinosaursProject
 
         public void ChooseWeapon()
         {
-            //I want to display a list of options for the user to choose from
-            //Then, based on their typed in choice, I want to assign that weapon
-            //to the robot in question
+            
             //Instead of assigning the weapon by trying to change the weapon, just
             //change the attack modifier
 
@@ -41,7 +39,9 @@ namespace RobotsDinosaursProject
             
             Console.WriteLine($"Choose {robotName}'s weapon!");
             Console.WriteLine("Press the number of your selection, then press enter.");
-            
+            Console.WriteLine("");
+
+
             foreach (Weapon weapon in armory1.armory)
             {
                 Console.WriteLine($"{index}: {weapon.type}");
@@ -56,6 +56,10 @@ namespace RobotsDinosaursProject
         public void Attack(Dinosaur dinosaur)
         {
             dinosaur.dinosaurHealth -= robotAttackPower;
+            Console.WriteLine($"Hit! {dinosaur.dinosaurType}'s health is down to {dinosaur.dinosaurHealth}.");
+            Console.WriteLine("");
+
+
 
         }
     }

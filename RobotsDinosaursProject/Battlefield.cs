@@ -59,6 +59,7 @@ namespace RobotsDinosaursProject
 
         public void PrintBattleResult(string winningTeam)
         {
+            Console.WriteLine("");
             Console.WriteLine($"{winningTeam} win!");
             Console.ReadLine();
         }
