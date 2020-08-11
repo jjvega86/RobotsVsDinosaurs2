@@ -104,7 +104,7 @@ namespace RobotsDinosaursProject
             }
             else
             {
-                Console.WriteLine($"{dinosaur.dinosaurType} failed to attack!");
+                Console.WriteLine($"{robotName} failed to attack!");
             }
 
             
