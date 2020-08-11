@@ -25,7 +25,7 @@ namespace RobotsDinosaursProject
             this.robotPowerLevel = 100;
             weapon = new Weapon("laser cannon", 1); //default weapon is a laser cannon that adds no multiplier. Standard attack power
             armory1 = new Armory();
-            this.robotAttackPower = 50;
+            this.robotAttackPower = 10;
 
         }
 
@@ -34,10 +34,11 @@ namespace RobotsDinosaursProject
             //I want to display a list of options for the user to choose from
             //Then, based on their typed in choice, I want to assign that weapon
             //to the robot in question
+            //Instead of assigning the weapon by trying to change the weapon, just
+            //change the attack modifier
 
             int index = 1;
             
-
             Console.WriteLine($"Choose {robotName}'s weapon!");
             Console.WriteLine("Press the number of your selection, then press enter.");
             
@@ -48,9 +49,7 @@ namespace RobotsDinosaursProject
             }
             int UserInput = int.Parse(Console.ReadLine());
 
-            robotAttackPower = robotAttackPower * armory1.armory[UserInput - 1].multiplier; 
-
-            //weapon = armory1.armory[UserInput - 1];
+            robotAttackPower *= armory1.armory[UserInput - 1].multiplier; 
 
         }
 

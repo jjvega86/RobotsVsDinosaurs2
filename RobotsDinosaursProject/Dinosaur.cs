@@ -12,6 +12,7 @@ namespace RobotsDinosaursProject
         public int dinosaurHealth;
         public int dinosaurEnergy;
         public int dinosaurAttackPower;
+        public DinosaurAttackTypes attackTypes;
 
         //Robots will be all the same type but have different weapon choices and less energy
         //Dinosaurs will have different types with different attributes, and different in battle attack types
@@ -22,11 +23,17 @@ namespace RobotsDinosaursProject
             this.dinosaurHealth = 100;
             this.dinosaurEnergy = 100;
             this.dinosaurAttackPower = 50;
+            attackTypes = new DinosaurAttackTypes();
         }
 
         public void Attack(Robot robot)
         {
             robot.robotHealth -= dinosaurAttackPower;
+
+        }
+
+        public void ChooseAttackType()
+        {
 
         }
     }
