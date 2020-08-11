@@ -32,31 +32,24 @@ namespace RobotsDinosaursProject
 
         public void ChooseWeapon()
         {
-
             //I want to display a list of options for the user to choose from
             //Then, based on their typed in choice, I want to assign that weapon
             //to the robot in question
+
             int index = 1;
             
 
             Console.WriteLine($"Choose {robotName}'s weapon!");
+            Console.WriteLine("Press the number of your selection, then press enter.");
             
             foreach (Weapon weapon in armory1.armory)
             {
                 Console.WriteLine($"{index}: {weapon.type}");
                 index += 1;
             }
-            string UserInput = Console.ReadLine();
+            int UserInput = int.Parse(Console.ReadLine());
 
-           
-            //if (UserInput == armory1.armory.)
-            //{
-
-            //}
-
-            //Weapon userweapon = new Weapon();
-            //return userweapon;
-
+            weapon = armory1.armory[UserInput - 1];
 
         }
 
