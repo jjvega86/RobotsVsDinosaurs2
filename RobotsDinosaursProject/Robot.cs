@@ -12,6 +12,7 @@ namespace RobotsDinosaursProject
         public int robotHealth;
         public int robotPowerLevel;
         public int robotAttackPower;
+        public int modifiedAttackPower;
         public Weapon weapon;
         public Armory armory1;
 
@@ -26,6 +27,7 @@ namespace RobotsDinosaursProject
             weapon = new Weapon("laser cannon", 1); //default weapon is a laser cannon that adds no multiplier. Standard attack power
             armory1 = new Armory();
             this.robotAttackPower = 10;
+            this.modifiedAttackPower = robotAttackPower;
 
         }
 
@@ -56,8 +58,8 @@ namespace RobotsDinosaursProject
 
         public void Attack(Dinosaur dinosaur)
         {
-            robotAttackPower = DrainEnergyAndRecharge();
-            dinosaur.dinosaurHealth -= robotAttackPower;
+            modifiedAttackPower = DrainEnergyAndRecharge();
+            dinosaur.dinosaurHealth -= modifiedAttackPower;
 
             if (dinosaur.dinosaurHealth <= 0)
             {
@@ -87,16 +89,16 @@ namespace RobotsDinosaursProject
 
             if (robotPowerLevel == 0)
             {
-                robotAttackPower = 0;
+                modifiedAttackPower = 0;
             }
             else
             {
-                robotAttackPower = 10; //resets attack power in case it was previously set to 0
+                modifiedAttackPower = robotAttackPower; //resets attack power in case it was previously set to 0
             }//issue because it undoes weapon selection from beginning of the game
             //create a temporary variable to store original robotAttackPower value and pass that in instead
             //then test both energy drain/restore methods after lunch
 
-            return robotAttackPower;
+            return modifiedAttackPower;
         }
     }
 }

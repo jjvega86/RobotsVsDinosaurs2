@@ -12,6 +12,7 @@ namespace RobotsDinosaursProject
         public int dinosaurHealth;
         public int dinosaurEnergy;
         public int dinosaurAttackPower;
+        public int dinosaurDefaultAttackPower;
         public DinosaurAttack dinosaurAttack1;
         public DinosaurAttackTypes attackTypes1;
 
@@ -24,24 +25,26 @@ namespace RobotsDinosaursProject
             this.dinosaurHealth = 100;
             this.dinosaurEnergy = 20;
             this.dinosaurAttackPower = 20;
+            dinosaurDefaultAttackPower = this.dinosaurAttackPower;
             dinosaurAttack1 = new DinosaurAttack("Intimidating Stare", 1);
             attackTypes1 = new DinosaurAttackTypes();
         }
 
         public void Attack(Robot robot)
         {
+
             dinosaurAttackPower = ChooseAttackType();
             dinosaurAttackPower = DrainEnergyAndRest();
 
             robot.robotHealth -= dinosaurAttackPower;
 
-            if (robot.robotHealth <= 0)
+            if (robot.robotHealth <= 0) //never display less than 0 as health to the user
             {
                 robot.robotHealth = 0;
             }
 
-           
-            dinosaurAttackPower = 20; //this keeps from compounding the attack multipliers over iterations
+
+            dinosaurAttackPower = dinosaurDefaultAttackPower; //this keeps from compounding the attack multipliers over iterations
             Console.WriteLine($"Hit! {robot.robotName}'s health is down to {robot.robotHealth}.");
             Console.WriteLine("");
 
