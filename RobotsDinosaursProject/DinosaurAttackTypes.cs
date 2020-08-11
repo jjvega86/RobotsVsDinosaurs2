@@ -9,9 +9,9 @@ namespace RobotsDinosaursProject
     class DinosaurAttackTypes
     {
         public DinosaurAttack[] attacktypes;
-        public DinosaurAttack bite = new DinosaurAttack("Bite", 1);
-        public DinosaurAttack slash = new DinosaurAttack("Slash", 2);
-        public DinosaurAttack stomp = new DinosaurAttack("Stomp", 3);
+        public DinosaurAttack bite = new DinosaurAttack("Bite", 2);
+        public DinosaurAttack slash = new DinosaurAttack("Slash", 3);
+        public DinosaurAttack stomp = new DinosaurAttack("Stomp", 4);
 
         public DinosaurAttackTypes()
         {

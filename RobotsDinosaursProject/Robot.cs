@@ -21,7 +21,7 @@ namespace RobotsDinosaursProject
         public Robot(string name)
         {
             this.robotName = name;
-            this.robotHealth = 100;
+            this.robotHealth = 200;
             this.robotPowerLevel = 100;
             weapon = new Weapon("laser cannon", 1); //default weapon is a laser cannon that adds no multiplier. Standard attack power
             armory1 = new Armory();
@@ -39,7 +39,6 @@ namespace RobotsDinosaursProject
             
             Console.WriteLine($"Choose {robotName}'s weapon!");
             Console.WriteLine("Press the number of your selection, then press enter.");
-            Console.WriteLine("");
 
 
             foreach (Weapon weapon in armory1.armory)
@@ -48,6 +47,8 @@ namespace RobotsDinosaursProject
                 index += 1;
             }
             int UserInput = int.Parse(Console.ReadLine());
+            Console.WriteLine("");
+
 
             robotAttackPower *= armory1.armory[UserInput - 1].multiplier; 
 
@@ -56,6 +57,12 @@ namespace RobotsDinosaursProject
         public void Attack(Dinosaur dinosaur)
         {
             dinosaur.dinosaurHealth -= robotAttackPower;
+
+            if (dinosaur.dinosaurHealth <= 0)
+            {
+                dinosaur.dinosaurHealth = 0;
+            }
+
             Console.WriteLine($"Hit! {dinosaur.dinosaurType}'s health is down to {dinosaur.dinosaurHealth}.");
             Console.WriteLine("");
 

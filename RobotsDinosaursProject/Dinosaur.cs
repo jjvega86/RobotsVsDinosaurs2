@@ -21,7 +21,7 @@ namespace RobotsDinosaursProject
         public Dinosaur(string type)
         {
             this.dinosaurType = type;
-            this.dinosaurHealth = 100;
+            this.dinosaurHealth = 200;
             this.dinosaurEnergy = 100;
             this.dinosaurAttackPower = 50;
             dinosaurAttack1 = new DinosaurAttack("Intimidating Stare", 1);
@@ -33,6 +33,12 @@ namespace RobotsDinosaursProject
             int modifiedAttackPower = ChooseAttackType();
 
             robot.robotHealth -= modifiedAttackPower;
+
+            if (robot.robotHealth <= 0)
+            {
+                robot.robotHealth = 0;
+            }
+
             Console.WriteLine($"Hit! {robot.robotName}'s health is down to {robot.robotHealth}.");
             Console.WriteLine("");
 
@@ -45,7 +51,6 @@ namespace RobotsDinosaursProject
 
             Console.WriteLine($"Choose {dinosaurType}'s attack!");
             Console.WriteLine("Press the number of your selection, then press enter.");
-            Console.WriteLine("");
 
             foreach (DinosaurAttack attack in attackTypes1.attacktypes)
             {
