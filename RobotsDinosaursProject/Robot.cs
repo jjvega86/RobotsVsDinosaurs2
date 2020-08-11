@@ -23,10 +23,9 @@ namespace RobotsDinosaursProject
             this.robotName = name;
             this.robotHealth = 100;
             this.robotPowerLevel = 100;
-            this.robotAttackPower = 50;
-            weapon = new Weapon("laser cannon", 1);
-            //default weapon is a laser cannon that adds no multiplier. Standard attack power
+            weapon = new Weapon("laser cannon", 1); //default weapon is a laser cannon that adds no multiplier. Standard attack power
             armory1 = new Armory();
+            this.robotAttackPower = 50 * weapon.multiplier;
 
         }
 

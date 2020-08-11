@@ -24,6 +24,18 @@ namespace RobotsDinosaursProject
             
         }
 
+        public void AssignWeapons()
+        {
+            foreach (Robot robot in robotFleet)
+            {
+                
+                robot.ChooseWeapon();
+                
+
+            }
+            
+        }
+
 
         public void AddRobottoFleet(Robot robot)
         {

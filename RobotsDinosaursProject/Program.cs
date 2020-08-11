@@ -13,8 +13,8 @@ namespace RobotsDinosaursProject
             //Battlefield robotdinosaurbattle = new Battlefield();
             //robotdinosaurbattle.PrintBattleResult(robotdinosaurbattle.EngageBattle());
 
-            Robot robot1 = new Robot("Dalek");
-            robot1.ChooseWeapon();
+            Fleet fleet = new Fleet();
+            fleet.AssignWeapons();
 
         }
     }

@@ -10,9 +10,9 @@ namespace RobotsDinosaursProject
     {
         //A weapon is a multiplier (1, 1.5., 2, etc) that multiplies robot attack power
         public string type;
-        public double multiplier;
+        public int multiplier;
 
-        public Weapon(string type, double multiplier)
+        public Weapon(string type, int multiplier)
         {
             this.type = type;
             this.multiplier = multiplier;
