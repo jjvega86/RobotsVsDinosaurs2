@@ -21,8 +21,8 @@ namespace RobotsDinosaursProject
         public Robot(string name)
         {
             this.robotName = name;
-            this.robotHealth = 200;
-            this.robotPowerLevel = 100;
+            this.robotHealth = 100;
+            this.robotPowerLevel = 20;
             weapon = new Weapon("laser cannon", 1); //default weapon is a laser cannon that adds no multiplier. Standard attack power
             armory1 = new Armory();
             this.robotAttackPower = 10;
@@ -56,6 +56,7 @@ namespace RobotsDinosaursProject
 
         public void Attack(Dinosaur dinosaur)
         {
+            robotAttackPower = DrainEnergyAndRecharge();
             dinosaur.dinosaurHealth -= robotAttackPower;
 
             if (dinosaur.dinosaurHealth <= 0)
@@ -66,8 +67,36 @@ namespace RobotsDinosaursProject
             Console.WriteLine($"Hit! {dinosaur.dinosaurType}'s health is down to {dinosaur.dinosaurHealth}.");
             Console.WriteLine("");
 
+        }
 
+        public int DrainEnergyAndRecharge()
+        {
+            //Every time Robot attacks, Robot's Energy goes down.
+            //When Energy reaches 0, Robot must recharge. Recharging means that Robot must
+            //skip the next round before being able to attack again.
 
+            if (robotPowerLevel > 0)
+            {
+                robotPowerLevel -= 10;
+
+            }
+            else
+            {
+                robotPowerLevel = 20;
+            }
+
+            if (robotPowerLevel == 0)
+            {
+                robotAttackPower = 0;
+            }
+            else
+            {
+                robotAttackPower = 10; //resets attack power in case it was previously set to 0
+            }//issue because it undoes weapon selection from beginning of the game
+            //create a temporary variable to store original robotAttackPower value and pass that in instead
+            //then test both energy drain/restore methods after lunch
+
+            return robotAttackPower;
         }
     }
 }

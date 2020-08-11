@@ -21,28 +21,55 @@ namespace RobotsDinosaursProject
         public Dinosaur(string type)
         {
             this.dinosaurType = type;
-            this.dinosaurHealth = 200;
-            this.dinosaurEnergy = 100;
-            this.dinosaurAttackPower = 50;
+            this.dinosaurHealth = 100;
+            this.dinosaurEnergy = 20;
+            this.dinosaurAttackPower = 20;
             dinosaurAttack1 = new DinosaurAttack("Intimidating Stare", 1);
             attackTypes1 = new DinosaurAttackTypes();
         }
 
         public void Attack(Robot robot)
         {
-            int modifiedAttackPower = ChooseAttackType();
+            dinosaurAttackPower = ChooseAttackType();
+            dinosaurAttackPower = DrainEnergyAndRest();
 
-            robot.robotHealth -= modifiedAttackPower;
+            robot.robotHealth -= dinosaurAttackPower;
 
             if (robot.robotHealth <= 0)
             {
                 robot.robotHealth = 0;
             }
 
+           
+            dinosaurAttackPower = 20; //this keeps from compounding the attack multipliers over iterations
             Console.WriteLine($"Hit! {robot.robotName}'s health is down to {robot.robotHealth}.");
             Console.WriteLine("");
 
 
+        }
+
+        public int DrainEnergyAndRest()
+        {
+            //Every time Dinosaur attacks, Dinosaur's Energy goes down.
+            //When Energy reaches 0, Dinosaur must rest. Resting means that Dinosaur must
+            //skip the next round before being able to attack again.
+
+            if (dinosaurEnergy > 0)
+            {
+                dinosaurEnergy -= 10;
+
+            }
+            else
+            {
+                dinosaurEnergy = 20;
+            }
+
+            if (dinosaurEnergy == 0)
+            {
+                dinosaurAttackPower = 0;
+            }
+
+            return dinosaurAttackPower;
         }
 
         public int ChooseAttackType()
