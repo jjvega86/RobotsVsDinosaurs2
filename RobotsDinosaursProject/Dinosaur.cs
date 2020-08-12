@@ -56,7 +56,7 @@ namespace RobotsDinosaursProject
             Random random = new Random();
             bool attackSuccess;
 
-            if (random.Next(21) > 10)
+            if (random.Next(21) > 8)
             {
                 attackSuccess = true;
             }
